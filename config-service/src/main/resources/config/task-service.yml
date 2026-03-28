@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: #URL do banco de dados
+    username: #username
+    password: #senha
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 600000
+      pool-name: HikariCP
+  jpa:
+    hibernate:
+      ddl-auto: update
+      properties:
+        hibernate:
+          format_sql: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    addresses: #Host do RabbitMQ
+
+
+broker:
+  queue:
+    task:
+      exchange:
+        name: tasks
+      created:
+        routing-key: tasks.v1.task-created
+
+server:
+    port: 8081
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000

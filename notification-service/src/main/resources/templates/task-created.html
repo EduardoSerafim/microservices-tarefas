@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><span th:text="${subject}"></span></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Olá, <span th:text="${userName}"></span>!</h1>
+    <p>Uma nova tarefa foi criada para você.</p>
+    <h2 th:text="${taskTitle}">Task Created</h2>
+    <p><span th:text="${taskDescription}"></span></p>
+    <p>Não se esqueça de concluí-la dentro do prazo!</p>
+    <div class="footer">
+        <p>Este é um e-mail automático. Por favor, não responda.</p>
+    </div>
+</div>
+</body>
+</html>
